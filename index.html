@@ -10,11 +10,78 @@
     <h1>Salary Calculator</h1>
   </header>
   <main>
-    <h2>Add Employee</h2>
+    <section>
+      <h2>Add Employee</h2>
+      <!-- FORM HTML -->
+      <form onsubmit="submitEmployee(event)" id="employeeEntry">
+        <input
+          name="firstName"
+          id="firstNameInput"
+          data-testid="firstNameInput"
+          placeholder="First Name"
+          type="text"
+        />
+        <input
+          name="lastName"
+          id="lastNameInput"
+          data-testid="lastNameInput"
+          placeholder="Last Name"
+          type="text"
+        />
+        <input
+          name="iD"
+          id="idInput"
+          data-testid="idInput"
+          placeholder="ID"
+          type="number"
+        />
+        <input
+          name="title"
+          id="titleInput"
+          data-testid="titleInput"
+          placeholder="Title"
+          type="text"
+        />
+        <input
+          name="salary"
+          id="annualSalaryInput"
+          data-testid="annualSalaryInput"
+          placeholder="Annual Salary"
+          type="number"
+        />
+
+        <button data-testid="submitButton">Submit</button>
+      </form>
+    </section>
+
     <h2>Employees</h2>
+    <section>
+      <table id="employeeTable">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Annual Salary</th>
+          </tr>
+        </thead>
+        <tbody id="employeeList">
+          <tr class="employee">
+            <td>Jane</td>
+            <td>Doe</td>
+          </tr>
+          <tr>
+            <td>John</td>
+            <td>Smith</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   </main>
   <footer>
-    <p>Total Monthly</p>
+    <p class="totalMonthly">Total Monthly: </p>
   </footer>
+  <script src="./script.js"></script>
 </body>
 </html>

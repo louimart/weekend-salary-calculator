@@ -1,0 +1,52 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
+}
+
+main {
+  padding: 20px;
+}
+
+h1 {
+  font-size: 40px;
+  background-color: lightgrey;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+form {
+    margin: 0 0 20px 0;
+    width: 100%;
+}
+  
+table {
+    border: 1px solid #000000;
+    width: 100%;
+}
+
+thead {
+    background-color: lightgrey;
+}
+td,
+th {
+    /* border: 1px solid #253240; */
+    padding: 10px;
+    margin: 0;
+    width: 20%;
+}
+
+p {
+    padding: 0px 20px;
+}
+
+.over-budget {
+    color: red;
+    font-weight: bold;
+}
