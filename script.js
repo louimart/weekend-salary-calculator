@@ -37,7 +37,7 @@ function submitEmployee(eventObj) {
     // console.log(`total over budget = $${totalOverBudget}`);
 
     // using if-else statement to display total monthly cost and assigning class to footer
-    const totalMonthlyDisplay = document.querySelector('.totalMonthly');
+    let totalMonthlyDisplay = document.querySelector('.totalMonthly');
     totalMonthlyDisplay.innerHTML = `<footer class="totalMonthly"><p>Total Monthly: $${totalMonthly.toFixed(2)}</p></footer>`;
 
     if(totalMonthly >= 20000){
@@ -54,7 +54,7 @@ function submitEmployee(eventObj) {
 function removeEmployee(event) {
     employeeElement = event.target.parentElement.parentElement;
     console.log(employeeElement);
-    // console.log(employeeElement.getElementsByClassName('salary').innerText);
+    console.log(employeeElement.querySelector('.salary').innerText);
     employeeElement.remove();
 }
 
