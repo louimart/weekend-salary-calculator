@@ -3,14 +3,9 @@ console.log('weekend salary calculator');
 totalMonthly = 0;
 
 function submitEmployee(eventObj) {
+    //  Prevent form clearing on submit
     eventObj.preventDefault();
     console.log(eventObj);
-    
-    // const firstNameInput = getByTestId(constainer, 'firstNameInput')
-    // const lastNameInput = getByTestId(container, 'lastNameInput')
-    // const idInput = getByTestId(container, 'idInput')
-    // const titleInput = getByTestId(container, 'titleInput')
-    // const annualSalaryInput = getByTestId(container, 'annualSalaryInput')
     
     console.log(firstNameInput.value);
     console.log(lastNameInput.value);
@@ -26,7 +21,7 @@ function submitEmployee(eventObj) {
         <td>${lastNameInput.value}</td>
         <td>${idInput.value}</td>
         <td>${titleInput.value}</td>
-        <td>${annualSalaryInput.value}</td>
+        <td class="salary">${annualSalaryInput.value}</td>
         <td><button onclick="removeEmployee(event)">Delete</button></td>
     </tr>
     `;
@@ -34,20 +29,20 @@ function submitEmployee(eventObj) {
 
     // calculating Total Monthly cost
     totalMonthly = (totalMonthly + Number(annualSalaryInput.value / 12));
-    console.log(totalMonthly);
+    console.log(`total monthly cost = $${totalMonthly}`);
 
     // calculating total over budget amount for reference
     totalOverBudget = totalMonthly - 20000;
-    console.log(totalOverBudget);
+    console.log(`total over budget = $${totalOverBudget}`);
 
-    // using if-else statement to display total 
+    // using if-else statement to display total monthly cost and assigning class to footer
     const totalMonthlyDisplay = document.querySelector('.totalMonthly');
     if(totalMonthly >= 20000){
         console.log('larger than 20,000')
-        totalMonthlyDisplay.innerHTML = `<p class="over-budget">Total Monthly: $${totalMonthly.toFixed(2)} (!!! $${totalOverBudget.toFixed(2)} over budget !!!)</p>`;
+        totalMonthlyDisplay.innerHTML = `<footer class="over-budget"><p>Total Monthly: $${totalMonthly.toFixed(2)} (!!! $${totalOverBudget.toFixed(2)} over budget !!!)</p></footer>`;
     } else {
         console.log('lower than 20,000')
-        totalMonthlyDisplay.innerHTML = `<p class="totalMonthly">Total Monthly: $${totalMonthly.toFixed(2)}</p>`;
+        totalMonthlyDisplay.innerHTML = `<footer class="totalMonthly"><p>Total Monthly: $${totalMonthly.toFixed(2)}</p></footer>`;
     }
     console.log(totalMonthlyDisplay);
 
@@ -57,6 +52,7 @@ function submitEmployee(eventObj) {
 function removeEmployee(event) {
     employeeElement = event.target.parentElement.parentElement;
     console.log(employeeElement);
+    // console.log(employeeElement.getElementsByClassName('salary').innerText);
     employeeElement.remove();
 }
 
