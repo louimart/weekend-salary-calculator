@@ -3,8 +3,9 @@ console.log('weekend salary calculator');
 totalMonthly = 0;
 
 function submitEmployee(eventObj) {
-    //  Prevent form clearing on submit
+    // Prevent form clearing on submit
     eventObj.preventDefault();
+    // for viewing results of submitted event
     console.log(eventObj);
     
     console.log(firstNameInput.value);
@@ -13,8 +14,8 @@ function submitEmployee(eventObj) {
     console.log(titleInput.value);
     console.log(annualSalaryInput.value);
 
+    // adds input information to the Employees table
     const employee = document.querySelector('#employeeList');
-    console.log(employee);
     employee.innerHTML += `
     <tr class="employee">
         <td>${firstNameInput.value}</td>
@@ -32,23 +33,24 @@ function submitEmployee(eventObj) {
     console.log(`total monthly cost = $${totalMonthly}`);
 
     // calculating total over budget amount for reference
-    totalOverBudget = totalMonthly - 20000;
-    console.log(`total over budget = $${totalOverBudget}`);
+    // totalOverBudget = totalMonthly - 20000;
+    // console.log(`total over budget = $${totalOverBudget}`);
 
     // using if-else statement to display total monthly cost and assigning class to footer
     const totalMonthlyDisplay = document.querySelector('.totalMonthly');
+    totalMonthlyDisplay.innerHTML = `<footer class="totalMonthly"><p>Total Monthly: $${totalMonthly.toFixed(2)}</p></footer>`;
+
     if(totalMonthly >= 20000){
-        console.log('larger than 20,000')
-        totalMonthlyDisplay.innerHTML = `<footer class="over-budget"><p>Total Monthly: $${totalMonthly.toFixed(2)} (!!! $${totalOverBudget.toFixed(2)} over budget !!!)</p></footer>`;
-    } else {
-        console.log('lower than 20,000')
-        totalMonthlyDisplay.innerHTML = `<footer class="totalMonthly"><p>Total Monthly: $${totalMonthly.toFixed(2)}</p></footer>`;
+        console.log('larger than 20,000');
+        // using classList to replace totalMonthly class with over-budget class
+        totalMonthlyDisplay = totalMonthlyDisplay.classList.replace('totalMonthly', 'over-budget',);
     }
     console.log(totalMonthlyDisplay);
 
     clearForm();
 }
 
+// delete button function to remove employee row from table.
 function removeEmployee(event) {
     employeeElement = event.target.parentElement.parentElement;
     console.log(employeeElement);
@@ -56,6 +58,7 @@ function removeEmployee(event) {
     employeeElement.remove();
 }
 
+// clear forms on submission
 function clearForm() {
     firstNameInput.value = ''
     lastNameInput.value = ''
